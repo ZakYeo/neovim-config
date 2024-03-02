@@ -62,9 +62,8 @@ vim.cmd [[
   autocmd TermOpen * startinsert
 ]]
 
-
-
-
+-- CTRL+O to exit input mode in :term
+vim.api.nvim_set_keymap('t', '<C-o>', [[<C-\><C-n>]], {noremap = true, silent = true})
 
 
 

@@ -57,3 +57,14 @@ for group, settings in pairs(transparency_settings) do
   vim.api.nvim_set_hl(0, group, settings)
 end
 
+-- Automatically enter insert mode when opening a terminal
+vim.cmd [[
+  autocmd TermOpen * startinsert
+]]
+
+
+
+
+
+
+

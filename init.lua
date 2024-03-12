@@ -66,4 +66,13 @@ vim.cmd [[
 vim.api.nvim_set_keymap('t', '<C-o>', [[<C-\><C-n>]], {noremap = true, silent = true})
 
 
+-- C+d & C+u will auto center
+vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', {noremap = true, silent = true})
+
+-- Using n or N will auto center
+vim.api.nvim_set_keymap('n', 'n', 'nzz', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'N', 'Nzz', {noremap = true, silent = true})
+
+
 

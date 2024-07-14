@@ -129,6 +129,26 @@ lvim.plugins = {
       })
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      local actions = require("telescope.actions")
+      require("telescope").setup {
+        defaults = {
+          layout_config = {
+            horizontal = {
+              prompt_position = "top",
+              preview_width = 0.55,
+            },
+            width = 0.95,
+            height = 0.85,
+            preview_cutoff = 120,
+          },
+          layout_strategy = "horizontal",
+        },
+      }
+    end
+  },
 
 
 }
@@ -164,24 +184,3 @@ wk.register({
 wk.register({
   e = { "<cmd>Neotree toggle<CR>", "Toggle Neotree" }
 })
-
--- Import Telescope and set up the configuration
-local actions = require("telescope.actions")
-local telescope = require("telescope")
-
-telescope.setup {
-  defaults = {
-    -- Default configuration for Telescope
-    -- Configure the layout to make preview appear on the right
-    layout_config = {
-      horizontal = {
-        prompt_position = "top",
-        preview_width = 0.55, -- Adjust the width of the preview as needed
-      },
-      width = 0.95,           -- Adjust the overall width of the Telescope window
-      height = 0.85,          -- Adjust the overall height of the Telescope window
-      preview_cutoff = 120,   -- Minimum width of Telescope window to show preview
-    },
-    layout_strategy = "horizontal",
-  },
-}

@@ -22,7 +22,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 lvim.plugins = {
   { "savq/melange-nvim" },
-  { "catppuccin/nvim" },
+  {
+    "catppuccin/nvim",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha" -- Choose from "latte", "frappe", "macchiato", "mocha"
+      })
+    end,
+  },
   {
     "windwp/nvim-ts-autotag",
     config = function()
@@ -153,9 +160,10 @@ lvim.plugins = {
 
 }
 
-lvim.colorscheme = "melange"
+lvim.colorscheme = "catppuccin"
 
 lvim.builtin.treesitter.highlight.enabled = true
+
 
 -- Navigate between buffers with [b and ]b
 lvim.keys.normal_mode["]b"] = ":BufferLineCycleNext<CR>"

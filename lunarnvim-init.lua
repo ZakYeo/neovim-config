@@ -156,7 +156,17 @@ lvim.plugins = {
       }
     end
   },
-
+  {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install", -- This command installs the necessary Node.js dependencies
+    ft = "markdown",                 -- Lazy loading: this plugin will be loaded only for markdown files
+    config = function()
+      vim.g.mkdp_auto_start = 1      -- This option automatically starts the preview when a Markdown file is opened
+      vim.g.mkdp_auto_close = 1      -- Automatically close the preview window when the Markdown file is closed
+      vim.g.mkdp_refresh_slow = 0    -- Refresh the preview window quickly on buffer change
+      vim.g.mkdp_theme = 'dark'      -- Set the preview theme, can be 'dark' or 'light'
+    end,
+  },
 
 }
 
